@@ -21,6 +21,7 @@ Also going to start off with a minimal goal of getting routes setup with cypress
 /character/1/ (Luke)
 
 ## Requirements
+Use data from https://swapi.dev/
 
 ### Character list view
  - List characters from the Star Wars universe (name, gender &amp; home
