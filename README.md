@@ -34,3 +34,12 @@ planet, people/?page=1 would suffice).
 ### Character details view
  - Display the following: name, hair colour, eye colour, gender and home planet and list
  the films that the character has appeared in
+
+###
+Setup log
+npx create-react-app cantinatatooine --template typescript .
+yarn add typescript @types/node @types/react @types/react-dom @types/jest
+yarn add cypress
+
+> Pulling from https://github.com/cypress-io/cypress-and-jest-typescript-example
+want to test route exists for /all/, /character/<id>
