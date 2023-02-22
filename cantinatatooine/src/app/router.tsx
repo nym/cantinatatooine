@@ -9,11 +9,11 @@ export default createBrowserRouter([
       element: Home(),
     },
   {
-      path: "/list",
+      path: "/people",
       element: PersonListPage(),
     },
     {
-      path: "/:id",
+      path: "/person/:id",
       element: PersonDetailPage(),
     }
 ]);

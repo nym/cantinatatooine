@@ -7,8 +7,15 @@ describe('App', () => {
   })
 
   it('Can load the list page', () => {
-    cy.visit('/list/')
+    cy.visit('/people')
 
-    cy.get('#root').contains('add person list')
+    cy.get('#root').contains('TODO: add person list')
   })
+
+  it('Can load the detail page', () => {
+    cy.visit('/person/1')
+
+    cy.get('h1').contains('Luke')
+  })
+
 })
