@@ -6,10 +6,23 @@ export const swApi = createApi({
   reducerPath: 'swApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://swapi.dev/api/' }),
   endpoints: (builder) => ({
+    // By using just the list APIs, I hope to reduce queries
+    // since they will get cached by Redux Query RTK
     // PERSON (character)
     getPersonList: builder.query({
         query: () => `people/`,
     }),
+
+     // PLANETS
+     getPlanetList: builder.query({
+        query: () => `planets/`,
+    }),
+
+    // FILMS
+    getFilmList: builder.query({
+        query: () => `films/`,
+    }),
+
   }),
 })
     
@@ -17,4 +30,4 @@ export const swApi = createApi({
 // Export hooks for usage in function components, which are
 // auto-generated based on the defined endpoints
 export const { 
-    useGetPersonListQuery } = swApi
+    useGetPersonListQuery, useGetPlanetListQuery, useGetFilmListQuery } = swApi
