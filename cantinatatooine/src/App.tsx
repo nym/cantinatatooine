@@ -9,9 +9,10 @@ function App() {
         <h2>
           STAR WARS: THE API
         </h2>
+
+        <RouterProvider router={router} />
       </header>
       <div>
-        <RouterProvider router={router} />
       </div>
     </div>
   );

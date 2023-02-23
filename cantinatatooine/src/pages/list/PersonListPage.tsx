@@ -8,7 +8,25 @@ export function PersonListPage() {
   return (
     <div>
       <div>
-        TODO: add person list
+        {error ? (
+        <>Oh no, there was an error</>
+        ) : isLoading ? (
+          <>Loading...</>
+        ) : data ? (
+          <>
+              <ul>
+              {data.results.map((person: any) => (
+                <li>
+                  {person.name}
+                  <br/>
+                  Eye Colour: {person.eyeColor} Hair Colour: {person.hairColor} Gender: {person.gender} <br/>
+                  Films: {person.films}  
+                </li>
+              ))}
+              </ul>
+          </>
+        ) : null}      
+
       </div>
     </div>
   );
