@@ -2,6 +2,12 @@
 export {};
 
 describe("App", () => {
+  beforeEach(() => {
+    cy.intercept('/api/people/', { fixture: 'people.json' }).as('people')
+    cy.intercept('/api/films/', { fixture: 'films.json' }).as('films')
+    cy.intercept('/api/planets/', { fixture: 'planets.json' }).as('planets')
+  });
+
   it("Can at a bare minimum- load", () => {
     cy.visit("");
 
@@ -13,7 +19,6 @@ describe("App", () => {
     cy.visit("/people");
 
     // wait on this request to finalize
-    cy.intercept('/api/films/').as('films')
     cy.wait('@films')
 
     cy.get("#root").contains("Luke Skywalker");
@@ -22,8 +27,6 @@ describe("App", () => {
   it("List view should include name, gender, and home planet", () => {
     cy.visit("/people");
 
-    // wait on this request to finalize
-    cy.intercept('/api/films/').as('films')
     cy.wait('@films')
 
     cy.get(".personListPage").contains("Luke Skywalker");
@@ -37,8 +40,6 @@ describe("App", () => {
   it("Clicking a list entry should navigate to the character details page", () => {
     cy.visit("/people");
 
-    // wait on this request to finalize
-    cy.intercept('/api/films/').as('films')
     cy.wait('@films')
     
     cy.get(".personListItem").contains("Luke Skywalker").click();
