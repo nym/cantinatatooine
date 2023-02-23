@@ -12,11 +12,19 @@ describe("App", () => {
   it("List characters from the Star Wars universe", () => {
     cy.visit("/people");
 
+    // wait on this request to finalize
+    cy.intercept('/api/films/').as('films')
+    cy.wait('@films')
+
     cy.get("#root").contains("Luke Skywalker");
   });
 
   it("List view should include name, gender, and home planet", () => {
     cy.visit("/people");
+
+    // wait on this request to finalize
+    cy.intercept('/api/films/').as('films')
+    cy.wait('@films')
 
     cy.get(".personListPage").contains("Luke Skywalker");
     cy.get(".personListItem").contains("Gender: male");
@@ -29,6 +37,10 @@ describe("App", () => {
   it("Clicking a list entry should navigate to the character details page", () => {
     cy.visit("/people");
 
+    // wait on this request to finalize
+    cy.intercept('/api/films/').as('films')
+    cy.wait('@films')
+    
     cy.get(".personListItem").contains("Luke Skywalker").click();
     cy.get(".personDetailPage").contains("Luke");
   });
