@@ -1,15 +1,13 @@
-import {
-    useGetPersonListQuery,
-} from '../../api/apiSlice';
-import PersonListItem from './PersonListItem'
+import { useGetPersonListQuery } from "../../api/apiSlice";
+import PersonListItem from "./PersonListItem";
 
 export function PersonListPage() {
-  const { data, error, isLoading } = useGetPersonListQuery({})
+  const { data, error, isLoading } = useGetPersonListQuery({});
   return (
     <div>
       <div className="personListPage">
         {error ? (
-        <>Oh no, there was an error</>
+          <>Oh no, there was an error</>
         ) : isLoading ? (
           <>Loading...</>
         ) : data ? (
@@ -18,8 +16,7 @@ export function PersonListPage() {
               <PersonListItem key={person.url} uri={person.url} />
             ))}
           </>
-        ) : null}      
-
+        ) : null}
       </div>
     </div>
   );

@@ -7,15 +7,15 @@ import NotFound from "../pages/notfound/NotFound";
 export default createBrowserRouter([
   {
     path: "/",
-    element: <Home/>,
-    errorElement: <NotFound/>,
+    element: <Home />,
+    errorElement: <NotFound />,
   },
   {
     path: "/people",
-    element: <PersonListPage/>,
+    element: <PersonListPage />,
   },
   {
     path: "/person/:id",
-    element:  <PersonDetailPage/>,
-  }
+    element: <PersonDetailPage />,
+  },
 ]);
