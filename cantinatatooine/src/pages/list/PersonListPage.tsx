@@ -8,9 +8,7 @@ export function PersonListPage() {
   return (
     <div>
       <div>
-      { isLoading }
-      { error }
-      { data }
+        TODO: add person list
       </div>
     </div>
   );
